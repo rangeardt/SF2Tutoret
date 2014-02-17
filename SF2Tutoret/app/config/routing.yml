@@ -1,0 +1,4 @@
+projet_reseau:
+    resource: "@ProjetReseauBundle/Resources/config/routing.yml"
+    prefix:   /
+
