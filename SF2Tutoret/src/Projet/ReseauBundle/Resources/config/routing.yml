@@ -1,3 +1,0 @@
-projet_reseau_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: ProjetReseauBundle:Default:index }
