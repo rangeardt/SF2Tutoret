@@ -1,0 +1,49 @@
+
+ 
+<h3>Les Salles</h3>
+  {% set cpt = 0 %}
+  {% for salle in liste_salle %}
+  {% if cpt  is divisible by(3) %}
+    {% if cpt == 0 %}
+
+    <div class="row-fluid">
+    {% endif %}
+    {% if cpt != 0 %}
+      </div>
+      </br>
+     <div class="row-fluid">
+  {% endif %}
+  {% endif %}
+        <div class="span3"><center>
+            <a href="{{ path('Projet_voirSalle', {'id': salle.id}) }}"></a>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+               {{ salle.nom }}
+            </button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Aperçu salle {{ salle.nom }}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>nombre d'ordinateurs: 10</p>
+                    <p>nombre d'ordinateurs allumés: 10</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">retour</button>
+                    <a href="{{ path('Projet_voirSalle', {'id': salle.id}) }}">
+                      <button type="button" class="btn btn-primary">
+                        Plus de détails
+                      </button>
+                    </a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </center>
+        </div>
+        
+        {% set cpt = cpt + 1 %}
+  {% endfor %}
+  </div>

@@ -1,0 +1,18 @@
+{# src/Sdz/BlogBundle/Resources/views/Blog/index.html.twig #}
+{% extends "ProjetReseauBundle::layout.html.twig" %}
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+{% block path %}
+	{{ parent() }}/<a href="{{ path('Projet_accueil') }}">Accueil</a>/
+{% endblock %}
+{% block body_content%}
+
+ <div class="hero-unit">
+            <h1>Bonjour !!!</h1>
+            <p>Ce site créer dans le cadre des projets tuteure a pour but de simplifier l'administration du reseau</p>
+            <p><a href="#" class="btn btn-primary btn-large">Documentation</a></p>
+          </div>
+{% endblock %}
+
+

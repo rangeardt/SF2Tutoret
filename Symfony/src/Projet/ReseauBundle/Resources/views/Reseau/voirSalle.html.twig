@@ -1,0 +1,9 @@
+ {# src/Sdz/BlogBundle/Resources/views/Blog/index.html.twig #}
+{% extends "ProjetReseauBundle::layout.html.twig" %}
+{% block title %}
+  Salle - {{ parent() }}
+{% endblock %}
+
+{% block body_content%}
+{{ render(controller("ProjetReseauBundle:Reseau:voirDonneeSalle", {'id':id })) }}
+{% endblock %}

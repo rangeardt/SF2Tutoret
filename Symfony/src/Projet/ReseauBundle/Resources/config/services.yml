@@ -1,0 +1,7 @@
+parameters:
+#    projet_reseau.example.class: Projet\ReseauBundle\Example
+
+services:
+#    projet_reseau.example:
+#        class: %projet_reseau.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

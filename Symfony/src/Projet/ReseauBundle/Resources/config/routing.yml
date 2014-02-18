@@ -1,0 +1,14 @@
+Projet_accueil:
+    path:  /
+    defaults: { _controller: ProjetReseauBundle:Reseau:index }
+
+Projet_voirSalle:
+    path:  /service/voir-salle/{id}
+    defaults: { _controller: ProjetReseauBundle:Reseau:voirSalle }
+    requirements:
+        id:  \d+
+
+Projet_apercu:
+    path:  /service/apercu
+    defaults: { _controller: ProjetReseauBundle:Reseau:apercu }
+
