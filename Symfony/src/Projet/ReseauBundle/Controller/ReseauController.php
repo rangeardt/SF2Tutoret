@@ -4,7 +4,7 @@ namespace Projet\ReseauBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Projet\ReseauBundle\Entity\Salle;
-
+use Projet\ReseauBundle\Entity\ConfigSalle;
 class  ReseauController extends Controller
 {
     public function indexAction()
@@ -27,7 +27,7 @@ class  ReseauController extends Controller
                   ->getRepository('ProjetReseauBundle:Salle')
                   ->findAll();
     return $this->render('ProjetReseauBundle:Reseau:menuApercuSalle.html.twig', array(
-      'liste_salle' => $liste // C'est ici tout l'intérêt : le contrôleur passe les variables nécessaires au template !
+										      'liste_salle' => $liste// C'est ici tout l'intérêt : le contrôleur passe les variables nécessaires au template !
     ));
     }
 

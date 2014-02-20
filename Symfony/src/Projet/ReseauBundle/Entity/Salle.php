@@ -34,7 +34,10 @@ class Salle
      * @ORM\Column(name="identificateur", type="string", length=255)
      */
     private $identificateur;
-
+  /**
+   * @ORM\OneToOne(targetEntity="Projet\ReseauBundle\Entity\ConfigSalle", cascade={"persist"})
+   */
+  private $config;
 
     /**
      * Get id
@@ -90,5 +93,28 @@ class Salle
     public function getIdentificateur()
     {
         return $this->identificateur;
+    }
+
+    /**
+     * Set config
+     *
+     * @param \Projet\ReseauBundle\Entity\ConfigSalle $config
+     * @return Salle
+     */
+    public function setConfig(\Projet\ReseauBundle\Entity\ConfigSalle $config = null)
+    {
+        $this->config = $config;
+
+        return $this;
+    }
+
+    /**
+     * Get config
+     *
+     * @return \Projet\ReseauBundle\Entity\ConfigSalle 
+     */
+    public function getConfig()
+    {
+        return $this->config;
     }
 }
