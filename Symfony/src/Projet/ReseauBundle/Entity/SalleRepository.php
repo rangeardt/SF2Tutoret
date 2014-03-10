@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class SalleRepository extends EntityRepository
 {
+
+
+
+public function findOneByNom($salle)
+{
+  // On utilise le QueryBuilder créé par le repository directement pour gagner du temps
+  // Plus besoin de faire le select() ni le from() par la suite donc
+
+  $qb = $this->createQueryBuilder('s');
+
+  $qb->where('s.nom = :salle')
+      ->setParameter('salle', $salle);
+
+
+  return $qb->getQuery()
+            ->getSingleResult();
+}
 }

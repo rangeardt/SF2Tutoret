@@ -1,4 +1,7 @@
+projet_user:
+    resource: "@ProjetUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 projet_reseau:
     resource: "@ProjetReseauBundle/Resources/config/routing.yml"
     prefix:   /
-

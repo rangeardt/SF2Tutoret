@@ -1,0 +1,58 @@
+
+{% extends "ProjetReseauBundle::layout.html.twig" %}
+{% block title %}
+  Salle - {{ parent() }}
+{% endblock %}
+ {% block path %}
+ {{parent()}}/<a href="{{ path('Projet_service') }}">Service</a>/<a href="{{ path('Projet_reseauGlobal') }}">Reseau</a>/<a href="{{ path('Projet_reseauSalleView', {'salle':salle.nom}) }}">{{salle.nom}}</a>
+  {% endblock %}
+{% block body_content%}
+
+<h3>Salle {{ salle.nom }}</h3>
+
+  {% set cpt = 0 %}
+  {% for post in liste_post %}
+  {% if cpt  is divisible by(15) %}
+  {% if cpt != 0 %}
+ </center> </div>
+  </div>
+  {% endif %}
+    <div class="row-fluid">
+		<div class="span9"><center>
+  {% endif %}
+  		
+						<a href="#myModal{{post.id}}" role="button" data-toggle="modal" style="height: 50px; display: inline-block;">
+							{% if post.etat == 2 %}
+								<img src="{{ asset('img/vert.png') }}" alt="Connecter!" style="width:50px" />
+					
+							{% else %}
+								<img src="{{ asset('img/rouge.png') }}" alt="Pas Connecter!" style="width:50px" />
+							{% endif %}
+							<p style="font-size: 15px;">{{ salle.nom }}-{{ post.nom }}</p>
+						</a>
+							
+							<div id="myModal{{post.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-header">
+								<p style="font-size: 15px;">{{ salle.nom }}-{{ post.nom }}</p>
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+								</div>
+								<div class="modal-body">
+									{% if post.config %}
+										<img src="{{ asset(post.config.etudiant.image.url) }}"  alt="{{post.config.etudiant.image.alt}}" style="width=150"></img>
+										<p>Utilisateur connecté sur ce poste : {{ post.config.etudiant.nom }} {{ post.config.etudiant.prenom }} </p>
+									{% else %}
+									<img src="{{ asset('img/personne.png') }}"  alt="User !" style="width=150"></img>
+									<p>Aucun utilisateur connecté</p>
+									{% endif %}
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+								</div>
+								</div>	
+  			{% set cpt = cpt + 1 %}
+  {% endfor %}
+
+
+
+
+{% endblock %}

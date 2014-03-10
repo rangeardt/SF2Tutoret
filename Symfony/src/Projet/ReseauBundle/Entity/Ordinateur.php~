@@ -33,6 +33,18 @@ class Ordinateur
    * @ORM\JoinColumn(nullable=false)
    */
      private $salle;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="etat", type="integer")
+     */
+    private $etat;
+    /**
+    * @ORM\OneToOne(targetEntity="Projet\ReseauBundle\Entity\ConfigPost")
+    */
+    private $config;
+
     /**
      * Get id
      *
@@ -64,5 +76,51 @@ class Ordinateur
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Set salle
+     *
+     * @param \Projet\ReseauBundle\Entity\Salle $salle
+     * @return Ordinateur
+     */
+    public function setSalle(\Projet\ReseauBundle\Entity\Salle $salle)
+    {
+        $this->salle = $salle;
+
+        return $this;
+    }
+
+    /**
+     * Get salle
+     *
+     * @return \Projet\ReseauBundle\Entity\Salle 
+     */
+    public function getSalle()
+    {
+        return $this->salle;
+    }
+
+    /**
+     * Set etat
+     *
+     * @param integer $etat
+     * @return Ordinateur
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get etat
+     *
+     * @return integer 
+     */
+    public function getEtat()
+    {
+        return $this->etat;
     }
 }

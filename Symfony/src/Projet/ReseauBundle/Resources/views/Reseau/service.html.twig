@@ -1,0 +1,32 @@
+
+{% extends "ProjetReseauBundle::layout.html.twig" %}
+{% block title %}
+  Liste des services - {{ parent() }}
+{% endblock %}
+ {% block path %}
+ {{parent()}}/<a href="{{ path('Projet_service') }}">Service</a>/
+ {% endblock %}
+{% block body_content %}
+<h3>Les Services</h3>
+{% set cpt = 0 %}
+{% for service in liste_service %}
+  {% if cpt  is divisible by(3) %}
+    {% if cpt == 0 %}
+      <div class="row-fluid">
+    {% endif %}
+    {% if cpt != 0 %}
+      </div>
+      </br>
+      <div class="row-fluid">
+    {% endif %}
+  {% endif %}
+  <div class="span3">
+  <h2><a href="{{ path(service.route) }}">{{ service.titre }}</a></h2>
+  <p>{{ service.desc }}</p>
+  	
+  </div>
+  {% set cpt = cpt + 1 %}
+{% endfor %}
+</div>
+
+{% endblock %}

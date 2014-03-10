@@ -41,6 +41,12 @@ class ConfigSalle
      * @ORM\Column(name="nbpcallume", type="integer")
      */
     private $nbpcallume;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nbpcoccuper", type="integer")
+     */
+    private $nbpcoccuper;
 
     public function __contruct(){
       $this->date=new Datetime();
@@ -122,5 +128,28 @@ class ConfigSalle
     public function getNbpcallume()
     {
         return $this->nbpcallume;
+    }
+
+    /**
+     * Set nbpcoccuper
+     *
+     * @param integer $nbpcoccuper
+     * @return ConfigSalle
+     */
+    public function setNbpcoccuper($nbpcoccuper)
+    {
+        $this->nbpcoccuper = $nbpcoccuper;
+
+        return $this;
+    }
+
+    /**
+     * Get nbpcoccuper
+     *
+     * @return integer 
+     */
+    public function getNbpcoccuper()
+    {
+        return $this->nbpcoccuper;
     }
 }

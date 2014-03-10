@@ -1,0 +1,26 @@
+
+{% extends "::layout.html.twig" %}
+{% block title %}
+  Reseau - {{ parent() }}
+{% endblock %}
+{% block body %}
+
+    <div class="row-fluid">
+    <div class="span12"
+
+     {% for type, messages in app.session.flashbag.all() %}
+            {% for key, message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+     
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+
+        </div><!--/span-->
+     </div><!--/row-->
+
+{% endblock %}

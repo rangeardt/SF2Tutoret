@@ -1,0 +1,42 @@
+
+{% extends "ProjetReseauBundle::layout.html.twig" %}
+{% block title %}
+  Apercu Reseau - {{ parent() }}
+{% endblock %}
+ {% block path %}
+ {{parent()}}/<a href="{{ path('Projet_service') }}">Service</a>/<a href="{{ path('Projet_reseauGlobal') }}">Reseau</a>
+  {% endblock %}
+{% block body_content%}
+<h3>Liste des salles du reseau</h3>
+<div class="row-fluid">
+<div class="span9">
+<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Salles</th>
+                  <th>Nombre de Post</th>
+                  <th>Post Allumer</th>
+                  <th>Post occuper</th>
+                  <th>Emploi du temps</th>
+                  <th>mise a jour</th>
+                </tr>
+                              </thead>
+                               <tbody>
+{% for salle in liste_salle %} 
+
+                <tr>
+                  <td><a href="{{ path('Projet_reseauSalleView', {'salle': salle.nom}) }}" title="Cliquez pour plus de détails">{{salle.nom}}</a> </td>
+                  <td>{{ salle.config.nbpctotal }}</td>
+                  <td>{{ salle.config.nbpcallume }}</td>
+                  <td>a Faire</td>
+                  <td>A faire</td>
+                  <td>{{ salle.config.date|date("d/m/Y h:m:s") }}</td>
+                </tr>
+         
+{% endfor %}
+     </tbody>
+            </table>
+</div>
+</div>
+
+{% endblock %}

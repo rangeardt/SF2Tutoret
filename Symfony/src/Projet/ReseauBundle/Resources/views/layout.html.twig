@@ -1,4 +1,4 @@
-{# src/Projet/ReseauBundle/Resources/views/layout.html.twig #}
+
 {% extends "::layout.html.twig" %}
 {% block title %}
   Reseau - {{ parent() }}
@@ -7,7 +7,7 @@
   <div class="row-fluid">
 
    {% block path %}
- <a href="{{ path('Projet_accueil') }}">Reseau</a>
+ <a href="{{ path('Projet_accueil') }}">Projet</a>
   {% endblock %}
 
   </div>
@@ -19,11 +19,11 @@
   <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Services</li>
-              <li><a href="{{ path('Projet_apercu') }}">Info Reseau</a></li>
-              <li><a href="#">Info Salle</a></li>
+              <li><a href="{{ path('Projet_reseauGlobal') }}">Info Reseau</a></li>
               <li><a href="#">Info Libre Service</a></li>
               <li class="nav-header">Divers</li>
               <li><a href="#">Tchat</a></li>
+              <li><a href="#">Votre Emploi du temps</a></li>
               <li><a href="#">Truc et astuces reseau</a></li>
               <li><a href="#">Easter Eggs</a></li>
             </ul>
