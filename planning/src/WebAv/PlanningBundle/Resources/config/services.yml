@@ -1,0 +1,3 @@
+services:
+    webav_planning.date:
+        class: Webav\PlanningBundle\Services\Date\Date

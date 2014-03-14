@@ -1,0 +1,57 @@
+{% extends "WebAvPlanningBundle::layout.html.twig" %}
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+{% block path %}
+	{{ parent() }}/<a href="#">Accueil</a>/
+{% endblock %}
+{% block body_content%}
+{% set monmois = mounth[mois] %}
+
+{{ year }} - {{ monmois }}
+<div class="row-fluid">
+{% set id = 0 %}
+{% for m in mounth %}
+	{% for key in mounth|keys %}
+    	{% if mounth[key] == m %}
+     		{% set id = key %}
+    	{% endif %}
+	{% endfor %}
+	<div class="span1"><center><a href="{{ path('webav_planningyear',{'year':year,'mois':id}) }}">{{m}}</a></center></div>
+{%  endfor %}
+</div>
+
+	 <div class="row-fluid">
+	 {% set cpt = 0 %}
+	 {% for day in days %}
+	 	<div class="span1"><center>{{day}}</center></div>
+	 {% endfor %}
+</div>
+			
+			<div class="row-fluid">
+			{% for d in dates[year][mois+1] %}
+				{% if cpt is divisibleby(7) %}
+					
+					</div><div class="row-fluid">
+				{% endif %}
+				{% if cpt ==0 and datesJ[year][mois+1][d]!=1 %}
+					
+						<div class="offset{{datesJ[year][mois+1][d]-1}} span1">
+					{% else %}
+						<div class="span1">
+					{% endif %}
+					<center>{{d}}</center>
+					{% if cpt == 0 %}
+						{% set cpt = cpt+datesJ[year][mois+1][d] %}
+					{% else %}
+						{% set cpt = cpt + 1 %}
+					{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+
+			
+
+{% endblock %}
+
+

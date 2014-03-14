@@ -1,0 +1,3 @@
+webav_planningyear:
+    pattern:  /Planning/{year}
+    defaults: { _controller: WebAvPlanningBundle:Default:index }
